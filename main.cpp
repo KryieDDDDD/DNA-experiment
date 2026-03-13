@@ -159,7 +159,7 @@ bool cmp_num_des_vec_(pair<VI, int> p1, pair<VI, int> p2) {
 
 void fountain_dec_from_txt() {
 	//double allCoverage[] = { 4.2, 4.3, 4.4};
-	n = 28500;
+	K = 28500;
 	double allCoverage[] = { 4.0, 4.1, 4.2, 4.3};
 	int upper_bound = 0;
 	int detect_only = 0;
@@ -454,19 +454,20 @@ void fountain_dec_from_txt() {
 void SPCC_N_foutain_dec_from_txt() {
 	//ifstream ifs1, ifs2;
 	//cout << "1" << endl;
-	n = 28970;
+	K = 28970;
 	ofstream ofs1, ofs2;
 	//ifs1.open("C:\\Users\\xinmatrix\\Desktop\\Data\\1.txt", ios::in);
 	//ifs2.open("C:\\Users\\xinmatrix\\Desktop\\Data\\C1.txt", ios::in);
-	double allCoverage[] = { 5.6, 5.7, 5.8, 5.9, 15, 12 };
+	double allCoverage[] = { 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 15, 12 };
 	//double allCoverage[] = {4, 4.5, 5, 5.5, 6};
+	bool test_upperbound = 1;
 	int scheme_no = 2;
 	max_run = 3;
 	bool use_bfa = 1;
 	bool detect_only = 1;
 	VS dirNames;
 	ifstream ifs2;
-	ifs2.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_R10_symbols.txt", ios::in);////////////////////
+	ifs2.open("Experiment_Data\\scheme2\\s2_R10_symbols.txt", ios::in);////////////////////
 	if (!ifs2.is_open()) {
 		cout << "file not open!" << endl;
 		assert(0);
@@ -496,7 +497,7 @@ void SPCC_N_foutain_dec_from_txt() {
 	//ofstream ofss;
 	//ofss.open("/mnt/dingyi/testInnerCode.txt", ios::out);
 	int maxErr = 100;
-	for (int i = 0; i <= 3; ++i) {
+	for (int i = 0; i <= 2; ++i) {
 
 		//if (i == 3)
 		//	MAX_FE = 10;
@@ -568,12 +569,12 @@ void SPCC_N_foutain_dec_from_txt() {
 			cout << "*************************" << endl;
 			cout << "testCases = " << ++testCases << endl;
 			//cout << "scheme : 2, SGE" << ", avg read = " << avg << endl;/////////////
-			printf("scheme = %d, use_bfa = %d, detect_only = %d, coverage = %lf\n", scheme_no, use_bfa, detect_only, avg);
+			printf("scheme = %d, test_UB = %d, use_bfa = %d, detect_only = %d, coverage = %lf\n", scheme_no, test_upperbound, use_bfa, detect_only, avg);
 			//ifs1.open("C:\\Users\\xinmatrix\\Desktop\\Data\\2.txt", ios::in);////////////////////////
 			//if (detect_only)
 			//	ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_detect_only.txt", ios::in);
 			//else
-			ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_sequencing_oligos.txt", ios::in);////////////////////////
+			ifs1.open("Experiment_Data\\scheme2\\s2_sequencing_oligos.txt", ios::in);////////////////////////
 			if (!ifs1.is_open())
 				assert(0);
 			int lineNum = 0, decNum = 0;
@@ -763,8 +764,6 @@ void SPCC_N_foutain_dec_from_txt() {
 			cout << "After cluster, SD.size() == " << tmp_symbol.size() << endl;
 			sort(tmp_symbol.begin(), tmp_symbol.end(), cmp_num_des_vec_);//////////////////////////////
 			int maxFreq = tmp_symbol.front().second;
-			//cout << "aa = " << aa << endl;
-			//cout << "bb = " << bb << endl;
 
 			CN_adj.resize(S + H);
 			CN_val.resize(S + H);
@@ -781,10 +780,6 @@ void SPCC_N_foutain_dec_from_txt() {
 				while (sz < tmp_symbol.size() && tmp_symbol[sz].second > 0)
 					++sz;
 				cout << tmp_symbol[sz - 1].second << " -> " << tmp_symbol[sz].second << " ";
-				//cout << itmp - 1 << ": " << tmp_symbol[itmp - 1].second << endl;
-				//cout << itmp << ": " << tmp_symbol[itmp].second << endl;
-				//cout << sz - 1 << ": " << tmp_symbol[sz - 1].second << endl;
-				//cout << sz << ": " << tmp_symbol[sz].second << endl;
 				tmp_symbol.resize(sz);
 
 			}
@@ -828,7 +823,10 @@ void SPCC_N_foutain_dec_from_txt() {
 					for (int j = 0; j < tmp_symbol[0].first.size(); ++j) {
 						copy_EES[i].push_back(tmp_symbol[i - S - H].first[j]);
 					}
-					copy_EES[i].push_back(abs(tmp_symbol[i - S - H].second));
+					if (test_upperbound)
+						copy_EES[i].push_back(tmp_symbol[i - S - H].second);
+					else
+						copy_EES[i].push_back(abs(tmp_symbol[i - S - H].second));
 				}
 
 				stable_sort(CN_pos_idx.begin(), CN_pos_idx.end(), cmp1);
@@ -1272,8 +1270,8 @@ int main()
 	// return 0;
 	//SPCC_N_foutain_dec_from_txt();//test the effectiveness of SPCC
 	//return 0;
-	fountain_dec_from_txt();
-	return 0;
+	//fountain_dec_from_txt();
+	//return 0;
 	//L_decode_from_txt();
 	//return 0;
 	//SPCC_dec_info_from_txt();

@@ -20,7 +20,7 @@ The lines beginning with '#' are used to set parameter, which have the form: #pa
 #RSD_delta	{ 0.001 }	delta for RSD
 #RSD_c		{ 0.025 }	c for RSD 
 
-#n		{ 28500 }		number of source symbols of outer LT codes 28500/28970-1primer/28724-4primers
+#n		{ 28970 }		number of source symbols of outer LT codes 28500/28970-1primer/28724-4primers
 #write_size	{ 30000 }		number of writing/systhesized oligos (encoded symbols of outer LT codes)
 #read_size	{ 1200000 }	number of reading/sequencing oligos
 
