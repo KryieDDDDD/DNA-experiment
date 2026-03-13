@@ -1,0 +1,6 @@
+seed              3131301896
+
+coverage          4.200000
+testCases         10
+wordErr           8
+FER               0.800000

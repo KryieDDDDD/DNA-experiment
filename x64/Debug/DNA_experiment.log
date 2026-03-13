@@ -1,0 +1,34 @@
+﻿  main.cpp
+D:\code\DNA_experiment\main.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\code\DNA_experiment\main.cpp(6,20): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(128,1): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(212,17): warning C4244: “初始化”: 从“_Rep”转换到“unsigned int”，可能丢失数据
+          with
+          [
+              _Rep=__int64
+          ]
+D:\code\DNA_experiment\main.cpp(227,33): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(364,31): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(464,7): warning C4101: “ctemp”: 未引用的局部变量
+D:\code\DNA_experiment\main.cpp(607,17): warning C4244: “初始化”: 从“_Rep”转换到“unsigned int”，可能丢失数据
+          with
+          [
+              _Rep=__int64
+          ]
+D:\code\DNA_experiment\main.cpp(677,33): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(900,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(573,7): warning C4101: “ctemp”: 未引用的局部变量
+D:\code\DNA_experiment\main.cpp(1041,35): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1026,7): warning C4101: “ctemp”: 未引用的局部变量
+D:\code\DNA_experiment\main.cpp(1098,61): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1101,21): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1103,21): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1112,61): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1115,21): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1117,21): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1193,16): warning C4244: “初始化”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1203,33): warning C4552: ”<=“: 未使用表达式结果
+D:\code\DNA_experiment\main.cpp(1205,32): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1236,49): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\DNA_experiment\main.cpp(1459,20): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  DNA_experiment.vcxproj -> D:\code\DNA_experiment\x64\Debug\DNA_experiment.exe
