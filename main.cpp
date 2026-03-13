@@ -159,6 +159,7 @@ bool cmp_num_des_vec_(pair<VI, int> p1, pair<VI, int> p2) {
 
 void fountain_dec_from_txt() {
 	//double allCoverage[] = { 4.2, 4.3, 4.4};
+	n = 28500;
 	double allCoverage[] = { 4.0, 4.1, 4.2, 4.3};
 	int upper_bound = 0;
 	int detect_only = 0;
@@ -453,6 +454,7 @@ void fountain_dec_from_txt() {
 void SPCC_N_foutain_dec_from_txt() {
 	//ifstream ifs1, ifs2;
 	//cout << "1" << endl;
+	n = 28970;
 	ofstream ofs1, ofs2;
 	//ifs1.open("C:\\Users\\xinmatrix\\Desktop\\Data\\1.txt", ios::in);
 	//ifs2.open("C:\\Users\\xinmatrix\\Desktop\\Data\\C1.txt", ios::in);
@@ -568,16 +570,16 @@ void SPCC_N_foutain_dec_from_txt() {
 			//cout << "scheme : 2, SGE" << ", avg read = " << avg << endl;/////////////
 			printf("scheme = %d, use_bfa = %d, detect_only = %d, coverage = %lf\n", scheme_no, use_bfa, detect_only, avg);
 			//ifs1.open("C:\\Users\\xinmatrix\\Desktop\\Data\\2.txt", ios::in);////////////////////////
-			if (detect_only)
-				ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_detect_only.txt", ios::in);
-			else
-				ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_sequencing_oligos.txt", ios::in);////////////////////////
+			//if (detect_only)
+			//	ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_detect_only.txt", ios::in);
+			//else
+			ifs1.open("DNA_experiment\\Experiment_Data\\scheme2\\s2_sequencing_oligos.txt", ios::in);////////////////////////
 			if (!ifs1.is_open())
 				assert(0);
 			int lineNum = 0, decNum = 0;
 			VB sampling = a_from_b(30000 * avg, maxLine);/////////////12538257, 11916498
-			if (detect_only)
-				sampling.resize(maxLine_detect);
+			//if (detect_only)
+			//	sampling.resize(maxLine_detect);
 			received_strand.clear();
 			time_t startTime = clock();
 			itemp = 0;
@@ -589,13 +591,12 @@ void SPCC_N_foutain_dec_from_txt() {
 					continue;
 				else if (stemp[stemp.size() - 1] == '\r')
 					stemp.resize(stemp.size() - 1);
-				// if (detect_only) {
-				// 	vitemp = bin2qua(string2bin(string(stemp.begin() + 1, stemp.end() - 1)));
-				// 	if (!valid_SPCC_cw(vitemp)) {
-				// 		cout << "error !!!!!!!!!!!!!!!!" << endl;
-				// 		continue;
-				// 	}
-				// }
+				 if (detect_only) {
+				 	vitemp = bin2qua(string2bin(string(stemp.begin() + 1, stemp.end() - 1)));
+				 	if (!valid_SPCC_cw(vitemp)) {
+				 		continue;
+				 	}
+				 }
 				string seed = string(stemp.begin(), stemp.begin() + 9);
 				auto iter = received_strand.find(seed);
 				if (iter == received_strand.end())
